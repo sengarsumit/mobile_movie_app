@@ -11,7 +11,7 @@ import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
 
 export default function Index() {
 
-  const [searchQuery,setSearchQuery]=useState("");
+  const [searchQuery,setSearchQuery]=useState('');
 
   const router = useRouter();
 
@@ -19,7 +19,9 @@ export default function Index() {
     loading,
     error,refetch:loadMovies,reset}=useFetch(()=>fetchMovies({query:searchQuery}),false);
 
-    useEffect(()=>{const timeoutId =setTimeout( async ()=>{
+    useEffect(()=>{
+      // updateSearchCount(searchQuery, movies[0]);
+      const timeoutId =setTimeout( async ()=>{
       if(searchQuery.trim()){
         await loadMovies();
       }
