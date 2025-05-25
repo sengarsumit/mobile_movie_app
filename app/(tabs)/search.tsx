@@ -19,15 +19,15 @@ export default function Index() {
     loading,
     error,refetch:loadMovies,reset}=useFetch(()=>fetchMovies({query:searchQuery}),false);
 
-    useEffect(()=>{const func =async ()=>{
+    useEffect(()=>{const timeoutId =setTimeout( async ()=>{
       if(searchQuery.trim()){
         await loadMovies();
       }
       else{
         reset();
       }
-      func();
-    }
+    },500);
+    return () => clearTimeout(timeoutId);
 
     }, [searchQuery]);
     
@@ -57,9 +57,18 @@ export default function Index() {
         {error && (
             <Text className="text-red-500 px-5 py-3">Error: {error.message}</Text>
         )}
-        {!loading && !error && searchQuery.trim()&& movies?.length>0 &&(<Text className="text-xl text-white font-bold ">Search Results for {searchQuery} 
+        {!loading && !error && searchQuery.trim()&& movies?.length>0 &&(<Text className="text-xl text-white font-bold ">Search Results for{" "}   
           <Text className="text-accent">{searchQuery}</Text></Text>)}
         </>
+      }
+      ListEmptyComponent={
+        !loading && !error ? (
+          <View className="mt-10 px-5">
+            <Text className="text-gray-500 text-center">{searchQuery.trim()?'No movies found':'Search for a movie'}</Text>
+
+            </View>
+
+        ):null
       }
       />
         
