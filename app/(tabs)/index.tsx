@@ -7,10 +7,11 @@ import { fetchMovies } from "@/services/api";
 import { getTrendingMovies } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import { useRouter } from "expo-router";
+import React from "react";
 import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "react-native";
 
 
-export default function Index() {
+ function Index() {
   const router = useRouter();
 
   const{
@@ -85,3 +86,5 @@ export default function Index() {
     </View> 
   );
 }
+
+export default Index;
