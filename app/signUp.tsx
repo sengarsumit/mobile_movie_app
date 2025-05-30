@@ -6,13 +6,13 @@ import React from 'react';
 import { Button, Image, Text, TextInput, View } from 'react-native';
 
 const signUp = () => {
-    const [username, setUsername] = React.useState('');
+
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
 const handleSignup = async () => {
     try {
-      await createUser(email, password,username);
+      await createUser(email, password,);
       router.replace('/'); 
     } catch (err: any) {
       alert(err.message);
@@ -24,7 +24,7 @@ const handleSignup = async () => {
               <Image source={icons.logo} className="w-12 h-10 mt-20 mb-5 mx-auto"/>
               <Text className='text-white text-lg font-bold '>Welcome to the Movie App</Text>
       
-              <TextInput value={username} placeholder='Username' onChangeText={setUsername} className='w-80 bg-dark-200 rounded-full px-5 py-3 mt-5 text-white' placeholderTextColor='#a8b5db' />
+
               <TextInput value={email} placeholder='Email' onChangeText={setEmail} className='w-80 bg-dark-200 rounded-full px-5 py-3 mt-5 text-white' placeholderTextColor='#a8b5db' />
               <TextInput value={password} placeholder='Password' onChangeText={setPassword} secureTextEntry className='w-80 bg-dark-200 rounded-full px-5 py-3 mt-5 text-white' placeholderTextColor='#a8b5db' />
               <Button title="SignUp" color="#007AFF" onPress={handleSignup}  />
@@ -39,9 +39,7 @@ const handleSignup = async () => {
   </Text>
 </Link>
 
-      </View>
-              <Text className='text-white  text-sm mt-3'>Forgot Password? <Text className='text-secondary text-blue-300 font-bold'>Reset</Text></Text>
-      
+      </View>      
           </View>
   )
 }
