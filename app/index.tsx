@@ -1,0 +1,33 @@
+import { icons } from '@/constants/icons'
+import { images } from '@/constants/images'
+import { Link, router } from 'expo-router'
+import React from 'react'
+import { Button, Image, Text, TextInput, View } from 'react-native'
+
+const index = () => {
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+  return (
+
+    <View className='flex-1 bg-primary items-center justify-center relative'>
+        <Image source={images.bg} className='absolute w-full h-full z-0' />
+        <Image source={icons.logo} className="w-12 h-10 mt-20 mb-5 mx-auto"/>
+        <Text className='text-white text-lg font-bold '>Welcome to the Movie App</Text>
+
+        <TextInput value={username} placeholder='Username' onChangeText={setUsername} className='w-80 bg-dark-200 rounded-full px-5 py-3 mt-5 text-white' placeholderTextColor='#a8b5db' />
+        <TextInput value={password} placeholder='Password' onChangeText={setPassword} secureTextEntry className='w-80 bg-dark-200 rounded-full px-5 py-3 mt-5 text-white' placeholderTextColor='#a8b5db' />
+        <Button title="Login" color="#007AFF" onPress={() => router.push("/(tabs)")}  />
+        <View className="flex-row mt-3">
+        <Text className="text-white text-sm">Don't have an account? </Text>
+       <Link href="/signUp" asChild>
+        <Text onPress={() => router.replace("/signUp")} className="text-blue-300 font-bold text-sm">Sign Up</Text>
+        </Link>
+        </View>
+      
+        <Text className='text-white  text-sm mt-3'>Forgot Password? <Text className='text-secondary text-blue-300 font-bold'>Reset</Text></Text>
+
+    </View>
+  )
+}
+
+export default index
