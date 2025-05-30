@@ -1,12 +1,16 @@
-import { Client, Databases, ID, Query } from 'react-native-appwrite';
+import { Account, Client, Databases, ID, Query } from 'react-native-appwrite';
 
 const DATABASE_ID = process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!; 
 const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID!;
+const SAVED_COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_SAVED_MOVIES_COLLECTION_ID!;
+const USER_COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_USER_COLLECTION_ID!;
+
 const client=new Client()
 .setEndpoint('https://cloud.appwrite.io/v1') 
 .setProject(process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!); 
 
 const database = new Databases(client);
+const account = new Account(client);
 
 export const updateSearchCount= async(query:string,movie:Movie)=>{
 
@@ -65,3 +69,23 @@ export const getTrendingMovies = async ():Promise<TrendingMovie[] | undefined > 
     }
 
 }
+
+export const createUser = async (email: string, password: string, username: string) => {
+  try {
+    const user = await account.create(ID.unique(), email, password, username);
+    return user;
+  } catch (error) {
+    console.error('Signup error:', error);
+    throw error;
+  }
+};
+
+export const loginUser = async (email: string, password: string) => {
+  try {
+    const session = await account.createEmailPasswordSession(email, password);
+    return session;
+  } catch (error) {
+    console.error('Login error:', error);
+    throw error;
+  }
+};

@@ -15,6 +15,12 @@ interface Movie {
   vote_count: number;
 }
 
+interface user{
+  username:string;
+  email:string;
+  password:string; 
+}
+
 interface TrendingMovie {
   searchTerm: string;
   movie_id: number;
