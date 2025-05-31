@@ -15,7 +15,8 @@ interface Movie {
   vote_count: number;
 }
 
-interface user{
+interface userInput{
+  name:string;
   username:string;
   email:string;
   password:string; 
