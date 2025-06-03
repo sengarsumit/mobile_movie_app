@@ -16,10 +16,7 @@ interface Movie {
 }
 
 interface userInput{
-  name:string;
   username:string;
-  email:string;
-  password:string; 
 }
 
 interface TrendingMovie {
