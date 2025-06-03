@@ -16,7 +16,9 @@ interface Movie {
 }
 
 interface userInput{
+  userId:string;
   username:string;
+  profilePicUrl:string;
 }
 
 interface TrendingMovie {

@@ -70,9 +70,9 @@ export const getTrendingMovies = async ():Promise<TrendingMovie[] | undefined > 
 
 }
 
-export const createUser = async (email: string, password: string) => {
+export const createUser = async (email: string, password: string,name:string) => {
   try {
-    const user = await account.create(ID.unique(), email, password, username);
+    const user = await account.create(ID.unique(), email, password,name);
     return user;
   } catch (error) {
     console.error('Signup error:', error);
@@ -89,6 +89,7 @@ export const loginUser = async (email: string, password: string) => {
     throw error;
   }
 };
+
 
 export const logoutUser = async () => {
   try {
