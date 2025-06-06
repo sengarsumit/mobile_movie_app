@@ -1,50 +1,68 @@
-# Welcome to your Expo app 👋
+🎬 Movie App - React Native + Appwrite + TMDB API
+This is a React Native Movie App built using Expo, integrating Appwrite for authentication and backend services, and The Movie Database (TMDB) API to fetch movie data. The app allows users to browse, search, and view trending movies based on search activity.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+✅ Features Implemented
+🔐 User Signup & Login with Appwrite Auth
 
-## Get started
+📬 User data saved in Appwrite DB (includes username and user ID)
 
-1. Install dependencies
+🔍 Search movies using TMDB API
 
-   ```bash
-   npm install
-   ```
+📈 Trending movies based on search count (tracked via Appwrite)
 
-2. Start the app
+🧪 Dummy Profile & Saved Pages set up for future development
 
-   ```bash
-   npx expo start
-   ```
+🚀 Built with expo-router and clean screen navigation
 
-In the output, you'll find options to open the app in a
+🛠 In Progress
+🖼 Profile Picture Upload
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Will be implemented using Cloudinary. The image will be selected during signup, uploaded to Cloudinary, and its URL saved to the Appwrite DB alongside the user data.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+🧰 Tech Stack
+Frontend: React Native (Expo)
 
-## Get a fresh project
+Backend: Appwrite (Auth + Database)
 
-When you're ready, run:
+Image Hosting: Cloudinary (WIP)
 
-```bash
-npm run reset-project
-```
+API: TheMovieDB.org
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Routing: expo-router
 
-## Learn more
+State Management: React Context API
 
-To learn more about developing your project with Expo, look at the following resources:
+🔧 Setup Instructions
+Clone the repo:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+bash
+Copy
+Edit
+git clone https://github.com/your-username/movie-app.git
+cd movie-app
+Install dependencies:
 
-## Join the community
+bash
+Copy
+Edit
+npm install
+Configure your .env or use app.config.js:
 
-Join our community of developers creating universal apps.
+ini
+Copy
+Edit
+EXPO_PUBLIC_APPWRITE_PROJECT_ID=your_project_id
+EXPO_PUBLIC_APPWRITE_DATABASE_ID=your_db_id
+EXPO_PUBLIC_APPWRITE_COLLECTION_ID=your_collection_id
+EXPO_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+EXPO_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+TMDB_API_KEY=your_tmdb_key
+Start the app:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+bash
+Copy
+Edit
+npx expo start
+📌 Note
+This project was initially set up by following a YouTube tutorial. I then extended the project by implementing authentication, saving user data in Appwrite DB, and building dummy pages. Profile image upload and rendering are next in line to complete.
+
