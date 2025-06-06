@@ -20,5 +20,5 @@ export const uploadImageToCloudinary = async (imageUri: string): Promise<string>
     throw new Error(data?.error?.message || 'Failed to upload image');
   }
 
-  return data.secure_url; // ✅ Your Cloudinary image URL
+  return data.secure_url; 
 };
